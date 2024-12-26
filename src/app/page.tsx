@@ -4,6 +4,7 @@ import PostForm from "@/components/PostForm";
 import PostCard from "@/components/PostCard";
 import { useState, useEffect } from "react";
 
+
 interface Post {
   id: string;
   title: string;
@@ -16,7 +17,7 @@ export default function HomePage() {
   // Загружаем посты с API при монтировании компонента
   useEffect(() => {
     async function fetchPosts() {
-      const response = await fetch("http://localhost:3000/api/posts");
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
       const data = await response.json();
       setPosts(data);
     }
@@ -27,7 +28,7 @@ export default function HomePage() {
   // Функция для добавления нового поста
   const handleAddPost = async (title: string, content: string) => {
     const newPost = { title, content };
-    const response = await fetch("http://localhost:3000/api/posts", {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +46,7 @@ export default function HomePage() {
 
   // Функция для удаления поста
   const handleDeletePost = async (id: string) => {
-    const response = await fetch(`http://localhost:3000/api/posts/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`, {
       method: "DELETE",
     });
 
