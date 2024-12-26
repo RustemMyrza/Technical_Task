@@ -17,7 +17,7 @@ export default function HomePage() {
   // Загружаем посты с API при монтировании компонента
   useEffect(() => {
     async function fetchPosts() {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+      const response = await fetch(`${process.env.API}/posts`);
       const data = await response.json();
       setPosts(data);
     }
@@ -28,7 +28,7 @@ export default function HomePage() {
   // Функция для добавления нового поста
   const handleAddPost = async (title: string, content: string) => {
     const newPost = { title, content };
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
+    const response = await fetch(`${process.env.API}/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export default function HomePage() {
 
   // Функция для удаления поста
   const handleDeletePost = async (id: string) => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`, {
+    const response = await fetch(`${process.env.API}/posts/${id}`, {
       method: "DELETE",
     });
 

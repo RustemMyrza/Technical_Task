@@ -19,7 +19,7 @@ export default function PostPage() {
 
     // Загружаем пост с API по id
     const fetchPost = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`);
+      const response = await fetch(`${process.env.API}/posts/${id}`);
       if (response.ok) {
         const data = await response.json();
         setPost(data);
