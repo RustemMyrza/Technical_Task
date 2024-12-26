@@ -71,6 +71,6 @@ export default function HomePage() {
           <p>Постов нет</p>
         )}
       </div>
-    </main>
+    </main> 
   );
 }

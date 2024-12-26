@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 
 interface PostFormProps {
@@ -28,7 +29,7 @@ export default function PostForm({ onAddPost }: PostFormProps) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <Input
+      <Textarea
         placeholder="Контент поста"
         value={content}
         onChange={(e) => setContent(e.target.value)}
